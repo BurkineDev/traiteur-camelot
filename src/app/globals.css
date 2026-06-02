@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Palette & typo de la marque Camelot (reprises du site existant).
+   En Tailwind v4, ces variables génèrent des utilitaires : bg-olive,
+   text-gold, font-display, etc.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Vraies couleurs de la marque (fournies par le client) :
+     olive #5d7052 · doré #e3cd8b · crème #f5f0d7 · noir #000000.
+     Les nuances -dark/-deep et gold-soft sont dérivées de ces tons. */
+  --color-olive: #5d7052;
+  --color-olive-dark: #4c5c43;
+  --color-olive-deep: #3d4a36;
+  --color-cream: #f5f0d7;
+  --color-parchment: #ece2bd;
+  --color-gold: #e3cd8b;
+  --color-gold-soft: #eddfae;
+  --color-ink: #000000;
+
+  /* Poiret One est injecté par next/font via --font-poiret (cf. layout.tsx).
+     Tout le site est en Poiret One, comme l'original (graisse unique 400). */
+  --font-display: var(--font-poiret), "Poiret One", ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+    /* Décale les ancres (#chef-a-domicile…) sous le header collant */
+    scroll-padding-top: 6rem;
+    /* Poiret One est une police fine : on agrandit la base d'environ 8 %
+       pour une meilleure lisibilité (tout le site est en rem, donc tout suit). */
+    font-size: 108%;
+  }
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+    font-weight: 400; /* Poiret One n'existe qu'en 400 */
+  }
+  /* Poiret One étant fin, on ouvre l'interlignage du corps de texte */
+  p {
+    line-height: 1.75;
+  }
+}
+
+/* ---- Micro-animations : un seul load orchestré (cf. skill design) -------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Zoom cinématique très lent de l'image du hero (une seule fois). */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-heroZoom {
+  animation: heroZoom 7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-rise {
+    opacity: 1;
+  }
+}

@@ -35,7 +35,7 @@ export async function generateMetadata({
     description: m.description,
     alternates: {
       canonical: path(lang, "home"),
-      languages: { fr: "/fr", en: "/en", "x-default": "/fr" },
+      languages: { "fr-CA": "/", "en-CA": "/en", "x-default": "/" },
     },
     openGraph: {
       type: "website",

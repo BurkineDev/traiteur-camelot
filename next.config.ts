@@ -6,15 +6,18 @@ const nextConfig: NextConfig = {
   // Les anciennes URLs (sans préfixe, déjà indexées) sont redirigées en 308
   // vers leur équivalent /fr — pour ne perdre aucune position SEO.
   async redirects() {
+    // Redirections 301 permanentes depuis les URLs /fr/* temporairement indexées
+    // vers les nouvelles URLs canoniques FR à la racine.
+    // Ces redirections s'exécutent AVANT le middleware → aucun risque de boucle.
     return [
-      { source: "/", destination: "/fr", permanent: false },
-      { source: "/nos-services", destination: "/fr/nos-services", permanent: true },
-      { source: "/nous-joindre", destination: "/fr/nous-joindre", permanent: true },
-      { source: "/temoignage", destination: "/fr/temoignage", permanent: true },
-      { source: "/menu-5", destination: "/fr/menu-5", permanent: true },
-      { source: "/canapes", destination: "/fr/canapes", permanent: true },
-      { source: "/menu-bachelorette", destination: "/fr/menu-bachelorette", permanent: true },
-      { source: "/menu-mariage", destination: "/fr/menu-mariage", permanent: true },
+      { source: "/fr", destination: "/", permanent: true },
+      { source: "/fr/nos-services", destination: "/nos-services", permanent: true },
+      { source: "/fr/nous-joindre", destination: "/nous-joindre", permanent: true },
+      { source: "/fr/temoignage", destination: "/temoignage", permanent: true },
+      { source: "/fr/menu-5", destination: "/menu-5", permanent: true },
+      { source: "/fr/canapes", destination: "/canapes", permanent: true },
+      { source: "/fr/menu-bachelorette", destination: "/menu-bachelorette", permanent: true },
+      { source: "/fr/menu-mariage", destination: "/menu-mariage", permanent: true },
     ];
   },
 };

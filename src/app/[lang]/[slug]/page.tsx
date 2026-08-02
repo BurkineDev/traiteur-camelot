@@ -22,12 +22,22 @@ export const dynamicParams = false;
 
 function buildLanguages(lang: Locale, slug: string) {
   const langs: Record<string, string> = {};
-  langs[lang] = `/${lang}/${slug}`;
+
+  // URL canonique de la langue courante (FR à la racine, EN sous /en)
+  langs[lang === "fr" ? "fr-CA" : "en-CA"] =
+    lang === "fr" ? `/${slug}` : `/en/${slug}`;
+
+  // URL équivalente dans l'autre langue
   const other: Locale = lang === "fr" ? "en" : "fr";
   const eq = equivalentSlug(lang, other, slug);
-  if (eq !== null) langs[other] = eq ? `/${other}/${eq}` : `/${other}`;
+  if (eq !== null) {
+    langs[other === "fr" ? "fr-CA" : "en-CA"] =
+      other === "fr" ? (eq ? `/${eq}` : "/") : (eq ? `/en/${eq}` : "/en");
+  }
+
+  // x-default = version FR à la racine
   const frSlug = lang === "fr" ? slug : equivalentSlug(lang, "fr", slug);
-  langs["x-default"] = frSlug ? `/fr/${frSlug}` : "/fr";
+  langs["x-default"] = frSlug ? `/${frSlug}` : "/";
   return langs;
 }
 
@@ -65,7 +75,7 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
   const r = resolveSlug(lang, slug);
   if (!r) return {};
-  const canonical = `/${lang}/${slug}`;
+  const canonical = lang === "fr" ? `/${slug}` : `/en/${slug}`;
   const languages = buildLanguages(lang, slug);
 
   if (r.type === "menu") {

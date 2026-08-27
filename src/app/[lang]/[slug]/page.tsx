@@ -81,7 +81,9 @@ export async function generateMetadata({
   if (r.type === "menu") {
     const c = menuChrome[r.key][lang];
     return {
-      title: c.metaTitle,
+      // metaTitle contient déjà « | Camelot » — absolute évite que le
+      // template du layout ne l'ajoute une seconde fois.
+      title: { absolute: c.metaTitle },
       description: c.metaDescription,
       alternates: { canonical, languages },
     };

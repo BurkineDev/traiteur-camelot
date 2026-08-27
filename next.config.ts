@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       { source: "/fr/canapes", destination: "/canapes", permanent: true },
       { source: "/fr/menu-bachelorette", destination: "/menu-bachelorette", permanent: true },
       { source: "/fr/menu-mariage", destination: "/menu-mariage", permanent: true },
+      // Anciennes URLs encore indexées (site précédent) qui renvoyaient 404.
+      { source: "/plats-dinatoires", destination: "/canapes", permanent: true },
+      { source: "/terms-and-conditions", destination: "/nous-joindre", permanent: true },
     ];
   },
 };

@@ -49,6 +49,8 @@ const fr = {
   services: {
     heroTitle: "Nos services",
     heroSubtitle: "Une cuisine sur mesure pour chaque occasion.",
+    metaDescription:
+      "Chef à domicile, cocktail dinatoire, traiteur événementiel et menu de mariage : des services sur mesure à Mont-Tremblant, dans les Laurentides et à Montréal.",
     serviceLabel: "Service",
     requestQuote: "Demander une soumission",
     discoverMenu: "Découvrir un exemple de menu",
@@ -83,6 +85,9 @@ const fr = {
     heroTitle: "Nous joindre",
     heroSubtitle:
       "Transformez votre événement en un festin inoubliable avec notre service traiteur d'exception.",
+    metaTitle: "Nous joindre — traiteur & chef privé à Mont-Tremblant",
+    metaDescription:
+      "Demandez une soumission pour votre mariage, réception ou souper en chalet : appelez-nous ou écrivez-nous. Traiteur et chef privé à Mont-Tremblant, dans les Laurentides.",
     infoTitle: "Demande d'informations",
     infoBody:
       "Dites-nous en plus sur votre projet : nous vous reviendrons rapidement avec une proposition adaptée.",
@@ -92,6 +97,9 @@ const fr = {
   },
   testimonials: {
     title: "Comment avez-vous vécu votre expérience avec le traiteur Camelot ?",
+    metaTitle: "Témoignages — traiteur & chef privé à Mont-Tremblant",
+    metaDescription:
+      "Partagez votre expérience avec Camelot, traiteur et chef privé à Mont-Tremblant : votre témoignage aide les futurs mariés et hôtes des Laurentides à nous découvrir.",
     backHome: "Retour à l'accueil",
   },
   form: {
@@ -180,6 +188,8 @@ const en: Shape = {
   services: {
     heroTitle: "Our services",
     heroSubtitle: "Bespoke cuisine for every occasion.",
+    metaDescription:
+      "Private chef at home, cocktail receptions, event catering and wedding menus: bespoke services in Mont-Tremblant, the Laurentians and Montréal.",
     serviceLabel: "Service",
     requestQuote: "Request a quote",
     discoverMenu: "See a sample menu",
@@ -214,6 +224,9 @@ const en: Shape = {
     heroTitle: "Contact us",
     heroSubtitle:
       "Turn your event into an unforgettable feast with our exceptional catering service.",
+    metaTitle: "Contact us — caterer & private chef in Mont-Tremblant",
+    metaDescription:
+      "Request a quote for your wedding, reception or chalet dinner: call or write to us. Caterer and private chef in Mont-Tremblant and the Laurentians.",
     infoTitle: "Request information",
     infoBody:
       "Tell us more about your project: we'll get back to you quickly with a tailored proposal.",
@@ -223,6 +236,9 @@ const en: Shape = {
   },
   testimonials: {
     title: "How was your experience with Camelot catering?",
+    metaTitle: "Testimonials — caterer & private chef in Mont-Tremblant",
+    metaDescription:
+      "Share your experience with Camelot, caterer and private chef in Mont-Tremblant: your testimonial helps future couples and hosts in the Laurentians discover us.",
     backHome: "Back to home",
   },
   form: {

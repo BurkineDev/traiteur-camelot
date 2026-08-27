@@ -2,6 +2,7 @@ import { PageHero } from "@/components/page-hero";
 import { ButtonLink } from "@/components/ui/button";
 import { getDictionary, menuChrome, tHeading } from "@/lib/dictionaries";
 import { menus, type MenuPageData } from "@/lib/menus";
+import { menuSchema } from "@/lib/schema";
 import { menuSlugs, path, type Locale, type MenuKey } from "@/lib/i18n";
 
 /**
@@ -22,6 +23,12 @@ export function MenuView({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(menuSchema(menuKey, locale)),
+        }}
+      />
       <PageHero title={chrome.title} subtitle={chrome.subtitle} image={heroImage}>
         <ButtonLink href={path(locale, "services")} variant="outline">
           {t.menusUi.backToServices}

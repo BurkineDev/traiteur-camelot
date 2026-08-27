@@ -49,17 +49,17 @@ function pageMeta(lang: Locale, key: PageKey, t: Dictionary) {
           lang === "fr"
             ? "Services traiteur, chef privé & chef à domicile — Mont-Tremblant"
             : "Catering, private chef & personal chef services — Mont-Tremblant",
-        description: t.services.heroSubtitle,
+        description: t.services.metaDescription,
       };
     case "contact":
-      return { title: t.contact.heroTitle, description: t.contact.heroSubtitle };
+      return {
+        title: t.contact.metaTitle,
+        description: t.contact.metaDescription,
+      };
     case "testimonials":
       return {
-        title: t.nav.testimonials,
-        description:
-          lang === "fr"
-            ? "Partagez votre expérience avec le traiteur et chef privé Camelot, à Mont-Tremblant."
-            : "Share your experience with Camelot caterer and private chef, in Mont-Tremblant.",
+        title: t.testimonials.metaTitle,
+        description: t.testimonials.metaDescription,
       };
     default:
       return { title: "Camelot", description: t.home.heroSubtitle };

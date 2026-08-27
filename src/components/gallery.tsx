@@ -90,7 +90,6 @@ export function Gallery({ locale }: { locale: Locale }) {
                   fill
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 42vw, (min-width: 640px) 55vw, 80vw"
                   className={`object-cover transition-transform duration-[1200ms] ease-out ${i === active ? "scale-[1.03]" : "scale-100"}`}
-                  priority={i === 0}
                 />
               </div>
             ))}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poiret_One } from "next/font/google";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import { siteUrl } from "@/lib/site-config";
 import { localBusinessSchema, websiteSchema } from "@/lib/schema";
@@ -61,16 +62,17 @@ export default async function LangLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema(lang)) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema(lang)) }}
         />
         <SiteHeader locale={lang} />
         <main>{children}</main>
         <SiteFooter locale={lang} />
         <ContactFab locale={lang} />
+        <Analytics />
       </body>
     </html>
   );

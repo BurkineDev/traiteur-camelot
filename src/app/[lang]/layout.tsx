@@ -35,6 +35,15 @@ export const metadata: Metadata = {
     template: "%s | Camelot",
   },
   robots: { index: true, follow: true },
+  // Favicon généré depuis l'emblème du logo (camion-cloche) sur fond olive.
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     siteName: "Camelot",

@@ -21,7 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : key === "services"
           ? 0.9
-          : key === "weddingCatering" || key === "chaletChef"
+          : key === "weddingCatering" ||
+              key === "chaletChef" ||
+              key === "corporateCatering"
             ? 0.8
             : 0.7;
     push(fr, en, priority);

@@ -55,6 +55,7 @@ const fr = {
     serviceLabel: "Service",
     moreWedding: "Traiteur de mariage à Mont-Tremblant",
     moreChalet: "Chef privé à votre chalet",
+    moreCorporate: "Traiteur corporatif dans les Laurentides",
     requestQuote: "Demander une soumission",
     discoverMenu: "Découvrir un exemple de menu",
     items: {
@@ -247,6 +248,63 @@ const fr = {
     ctaTitle: "Votre chalet, notre cuisine.",
     ctaButton: "Demander une soumission",
   },
+  corporatePage: {
+    heroTitle: "Traiteur corporatif dans les Laurentides",
+    heroSubtitle:
+      "Cocktails, buffets et repas d'équipe, de Saint-Jérôme à Mont-Tremblant.",
+    metaTitle: "Traiteur corporatif — Laurentides & Mont-Tremblant",
+    metaDescription:
+      "Traiteur corporatif dans les Laurentides : cocktails dinatoires, buffets et repas d'équipe pour vos 5 à 7, lancements et retraites d'entreprise — de Saint-Jérôme à Mont-Tremblant, et à Montréal.",
+    intro1:
+      "Réunion d'équipe, lancement, 5 à 7, fête de bureau ou lac-à-l'épaule en montagne : Camelot, traiteur établi à Mont-Tremblant, met la gastronomie au service de vos événements d'entreprise dans les Laurentides. Des menus saisonniers, dressés avec le même soin que nos tables de réception.",
+    intro2:
+      "Chaque menu est composé selon votre format, la saison et le nombre de convives — du plateau de canapés au repas complet.",
+    formatsTitle: "Trois formats selon votre événement",
+    formats: [
+      {
+        title: "Cocktail dinatoire",
+        body: "Bouchées raffinées et pièces signature pour vos lancements, 5 à 7 et célébrations d'équipe — un service qui circule, pour que la conversation continue.",
+      },
+      {
+        title: "Buffet & repas d'équipe",
+        body: "Des formules buffet aux menus saisonniers, adaptées à votre nombre d'invités : dîners de réunion, fêtes de fin d'année, journées de formation.",
+      },
+      {
+        title: "Chef sur place",
+        body: "Pour une retraite d'entreprise en chalet ou un repas d'affaires : le chef cuisine sur place et dresse chaque service, comme au restaurant.",
+      },
+    ],
+    menuTitle: "Un exemple de menu corporatif",
+    menuBody:
+      "Blini au saumon fumé à chaud, tartare de bœuf aux câpres capucines, arancini aux champignons sauvages, parmentier de canard confit, mini cannoli au dulce de leche… L'exemple donne le ton — votre menu sera composé selon votre événement.",
+    menuCta: "Voir le menu corporatif",
+    areaTitle: "De Saint-Jérôme à Mont-Tremblant",
+    areaBody1:
+      "Nous servons les entreprises partout dans les Laurentides — Saint-Jérôme, Saint-Sauveur, Sainte-Adèle, Val-David, Sainte-Agathe-des-Monts, Morin-Heights, Mont-Tremblant — ainsi qu'à Montréal.",
+    areaBody2:
+      "Établis à Mont-Tremblant, nous connaissons bien les séminaires et retraites en montagne : les hôtels et chalets de groupe de la région se prêtent autant au travail qu'à la table.",
+    faqTitle: "Questions fréquentes — corporatif",
+    faq: [
+      {
+        q: "Servez-vous dans nos bureaux ou dans un lieu loué ?",
+        a: "Les deux. Nous nous déplaçons dans vos locaux, dans une salle louée ou au chalet de votre retraite d'équipe — indiquez le lieu dans votre demande, nous confirmons la logistique avec la soumission.",
+      },
+      {
+        q: "Proposez-vous des formules buffet ?",
+        a: "Oui. Le service traiteur événementiel comprend des formules buffet et des menus saisonniers, adaptés à votre nombre d'invités.",
+      },
+      {
+        q: "Le menu peut-il tenir compte des restrictions alimentaires de l'équipe ?",
+        a: "Oui. Chaque menu est composé sur mesure : transmettez-nous les allergies et restrictions de vos invités, elles sont intégrées dès la conception.",
+      },
+      {
+        q: "Comment obtenir une soumission ?",
+        a: "Écrivez-nous par le formulaire avec la date, le lieu, le format souhaité et le nombre approximatif de convives. Nous vous répondons rapidement avec une proposition adaptée.",
+      },
+    ],
+    ctaTitle: "Parlez-nous de votre événement d'entreprise.",
+    ctaButton: "Demander une soumission",
+  },
   chefPage: {
     heroTitle: "Jean-Philippe Delarosbil",
     heroSubtitle: "Chef exécutif et propriétaire de Camelot",
@@ -335,6 +393,7 @@ const en: Shape = {
     serviceLabel: "Service",
     moreWedding: "Wedding caterer in Mont-Tremblant",
     moreChalet: "Private chef at your chalet",
+    moreCorporate: "Corporate caterer in the Laurentians",
     requestQuote: "Request a quote",
     discoverMenu: "See a sample menu",
     items: {
@@ -524,6 +583,63 @@ const en: Shape = {
       },
     ],
     ctaTitle: "Your chalet, our kitchen.",
+    ctaButton: "Request a quote",
+  },
+  corporatePage: {
+    heroTitle: "Corporate caterer in the Laurentians",
+    heroSubtitle:
+      "Cocktails, buffets and team meals, from Saint-Jérôme to Mont-Tremblant.",
+    metaTitle: "Corporate caterer — Laurentians & Mont-Tremblant",
+    metaDescription:
+      "Corporate catering in the Laurentians: cocktail receptions, buffets and team meals for your after-work events, launches and company retreats — from Saint-Jérôme to Mont-Tremblant, and Montréal.",
+    intro1:
+      "A team meeting, a launch, an after-work reception, an office party or a company retreat in the mountains: Camelot, a caterer based in Mont-Tremblant, puts gastronomy at the service of your corporate events across the Laurentians. Seasonal menus, plated with the same care as our reception tables.",
+    intro2:
+      "Every menu is composed around your format, the season and your headcount — from a canapé platter to a full meal.",
+    formatsTitle: "Three formats for your event",
+    formats: [
+      {
+        title: "Cocktail reception",
+        body: "Refined canapés and signature pieces for your launches, after-work gatherings and team celebrations — a service that circulates, so the conversation keeps going.",
+      },
+      {
+        title: "Buffet & team meals",
+        body: "Buffet formulas and seasonal menus, tailored to your guest count: meeting lunches, year-end parties, training days.",
+      },
+      {
+        title: "Chef on site",
+        body: "For a company retreat at a chalet or a business dinner: the chef cooks on site and plates every course, restaurant-style.",
+      },
+    ],
+    menuTitle: "A sample corporate menu",
+    menuBody:
+      "Blini with hot-smoked salmon, beef tartare with nasturtium capers, wild-mushroom arancini, duck confit parmentier, mini cannoli with dulce de leche… The sample sets the tone — your menu will be composed around your event.",
+    menuCta: "See the corporate menu",
+    areaTitle: "From Saint-Jérôme to Mont-Tremblant",
+    areaBody1:
+      "We serve businesses throughout the Laurentians — Saint-Jérôme, Saint-Sauveur, Sainte-Adèle, Val-David, Sainte-Agathe-des-Monts, Morin-Heights, Mont-Tremblant — as well as Montréal.",
+    areaBody2:
+      "Based in Mont-Tremblant, we know mountain seminars and retreats well: the region's hotels and group chalets lend themselves to work and to the table alike.",
+    faqTitle: "Corporate FAQ",
+    faq: [
+      {
+        q: "Do you serve at our offices or at a rented venue?",
+        a: "Both. We come to your workplace, a rented hall or the chalet of your team retreat — mention the venue in your request and we'll confirm the logistics with the quote.",
+      },
+      {
+        q: "Do you offer buffet formulas?",
+        a: "Yes. Our event catering includes buffet formulas and seasonal menus, tailored to your guest count.",
+      },
+      {
+        q: "Can the menu account for the team's dietary restrictions?",
+        a: "Yes. Every menu is bespoke: send us your guests' allergies and restrictions and they'll be designed in from the start.",
+      },
+      {
+        q: "How do I get a quote?",
+        a: "Write to us through the form with the date, the venue, the format you have in mind and the approximate headcount. We'll reply quickly with a tailored proposal.",
+      },
+    ],
+    ctaTitle: "Tell us about your corporate event.",
     ctaButton: "Request a quote",
   },
   chefPage: {

@@ -5,6 +5,7 @@ import { ContactView } from "@/components/views/contact-view";
 import { TestimonialsView } from "@/components/views/testimonials-view";
 import { WeddingView } from "@/components/views/wedding-view";
 import { ChaletView } from "@/components/views/chalet-view";
+import { CorporateView } from "@/components/views/corporate-view";
 import { ChefView } from "@/components/views/chef-view";
 import { MenuView } from "@/components/menu-view";
 import { getDictionary, menuChrome, type Dictionary } from "@/lib/dictionaries";
@@ -77,6 +78,11 @@ function pageMeta(lang: Locale, key: PageKey, t: Dictionary) {
         title: t.chaletPage.metaTitle,
         description: t.chaletPage.metaDescription,
       };
+    case "corporateCatering":
+      return {
+        title: t.corporatePage.metaTitle,
+        description: t.corporatePage.metaDescription,
+      };
     case "chef":
       return {
         title: t.chefPage.metaTitle,
@@ -141,6 +147,8 @@ export default async function Page({
       return <WeddingView locale={lang} />;
     case "chaletChef":
       return <ChaletView locale={lang} />;
+    case "corporateCatering":
+      return <CorporateView locale={lang} />;
     case "chef":
       return <ChefView locale={lang} />;
     default:

@@ -29,6 +29,10 @@ export const pageSlugs = {
     fr: "chef-prive-chalet-tremblant",
     en: "private-chef-chalet-tremblant",
   },
+  corporateCatering: {
+    fr: "traiteur-corporatif-laurentides",
+    en: "corporate-caterer-laurentians",
+  },
   chef: { fr: "le-chef", en: "the-chef" },
 } as const;
 export type PageKey = keyof typeof pageSlugs;

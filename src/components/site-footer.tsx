@@ -41,8 +41,10 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <Social />
         </div>
 
+        {/* Intitulés en <p> : un footer présent sur les 16 pages ne doit pas
+            injecter de H2 dans le plan de chaque page. */}
         <div>
-          <h2 className="text-2xl text-gold-soft">{t.contact}</h2>
+          <p className="text-2xl text-gold-soft">{t.contact}</p>
           <p className="mt-4">
             {t.phone}{" "}
             <a href={site.phoneHref} className="text-gold-soft hover:text-gold">
@@ -55,7 +57,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </div>
 
         <div>
-          <h2 className="text-2xl text-gold-soft">{t.location}</h2>
+          <p className="text-2xl text-gold-soft">{t.location}</p>
           <p className="mt-4 text-cream/85">
             {site.address.locality}, {site.address.region}
           </p>

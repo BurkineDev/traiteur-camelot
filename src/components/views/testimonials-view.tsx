@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { getDictionary } from "@/lib/dictionaries";
@@ -7,15 +8,18 @@ export function TestimonialsView({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).testimonials;
   return (
     <section
-      className="px-5 py-20 lg:py-28"
-      style={{
-        backgroundColor: "var(--color-cream)",
-        backgroundImage: "url('/temoignage-bg.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative overflow-hidden px-5 py-20 lg:py-28"
+      style={{ backgroundColor: "var(--color-cream)" }}
     >
-      <div className="mx-auto max-w-xl">
+      <Image
+        src="/temoignage-bg.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="relative mx-auto max-w-xl">
         <h1 className="text-center text-4xl text-olive-dark sm:text-5xl">{t.title}</h1>
         <div className="mt-10 rounded-2xl bg-white/70 p-6 backdrop-blur-sm sm:p-8">
           <ContactForm kind="temoignage" locale={locale} />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
@@ -20,15 +21,12 @@ export function ServicesView({ locale }: { locale: Locale }) {
                 <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
                   <div className={`relative ${reversed ? "lg:order-2" : ""}`}>
                     <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-[0_30px_70px_-30px_rgba(45,55,40,0.55)] ring-1 ring-gold/25">
-                      <div
-                        className="absolute inset-0 transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
-                        style={{
-                          backgroundImage: `url('/service-${key}.jpg')`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                        role="img"
-                        aria-label={s.title}
+                      <Image
+                        src={`/service-${key}.jpg`}
+                        alt={s.title}
+                        fill
+                        sizes="(min-width: 1024px) 45vw, 100vw"
+                        className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-olive-deep/35 via-transparent to-transparent" />
                     </div>
@@ -52,6 +50,22 @@ export function ServicesView({ locale }: { locale: Locale }) {
                       <ButtonLink href={menuPath(locale, key)} variant="olive">
                         {t.discoverMenu}
                       </ButtonLink>
+                      {key === "mariage" && (
+                        <ButtonLink
+                          href={path(locale, "weddingCatering")}
+                          variant="olive"
+                        >
+                          {t.moreWedding}
+                        </ButtonLink>
+                      )}
+                      {key === "chef-a-domicile" && (
+                        <ButtonLink
+                          href={path(locale, "chaletChef")}
+                          variant="olive"
+                        >
+                          {t.moreChalet}
+                        </ButtonLink>
+                      )}
                     </div>
                   </div>
                 </div>

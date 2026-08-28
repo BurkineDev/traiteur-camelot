@@ -19,6 +19,17 @@ export const pageSlugs = {
   services: { fr: "nos-services", en: "services" },
   contact: { fr: "nous-joindre", en: "contact" },
   testimonials: { fr: "temoignage", en: "testimonials" },
+  // Pages d'atterrissage locales (audit SEO) : une intention de recherche
+  // complète par page — mariage, chalet — plus le parcours du chef.
+  weddingCatering: {
+    fr: "traiteur-mariage-mont-tremblant",
+    en: "wedding-caterer-mont-tremblant",
+  },
+  chaletChef: {
+    fr: "chef-prive-chalet-tremblant",
+    en: "private-chef-chalet-tremblant",
+  },
+  chef: { fr: "le-chef", en: "the-chef" },
 } as const;
 export type PageKey = keyof typeof pageSlugs;
 
@@ -39,15 +50,22 @@ export const serviceKeys = [
   "mariage",
 ] as const satisfies readonly MenuKey[];
 
-/** Chemin localisé d'une page simple, ex. path("fr","services") → "/fr/nos-services". */
+/**
+ * Chemin localisé d'une page simple.
+ * FR vit à la racine : path("fr","services") → "/nos-services"
+ *                       path("fr","home")     → "/"
+ * EN est préfixé /en : path("en","services") → "/en/services"
+ */
 export function path(locale: Locale, key: PageKey): string {
   const slug = pageSlugs[key][locale];
-  return slug ? `/${locale}/${slug}` : `/${locale}`;
+  if (locale === "fr") return slug ? `/${slug}` : "/";
+  return slug ? `/en/${slug}` : "/en";
 }
 
-/** Chemin localisé d'une page de menu. */
+/** Chemin localisé d'une page de menu (FR à la racine, EN sous /en). */
 export function menuPath(locale: Locale, key: MenuKey): string {
-  return `/${locale}/${menuSlugs[key][locale]}`;
+  if (locale === "fr") return `/${menuSlugs[key][locale]}`;
+  return `/en/${menuSlugs[key][locale]}`;
 }
 
 /** Résout (langue, slug) → page logique pour le routage dynamique [slug]. */

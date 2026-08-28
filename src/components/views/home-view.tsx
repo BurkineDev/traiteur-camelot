@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { Gallery } from "@/components/gallery";
 import { getDictionary } from "@/lib/dictionaries";
@@ -9,15 +11,16 @@ export function HomeView({ locale }: { locale: Locale }) {
     <>
       {/* ---------------- HERO ---------------- */}
       <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden px-5 text-center">
-        <div
-          className="animate-heroZoom absolute inset-0"
-          style={{
-            backgroundImage: "url('/hero.jpg')",
-            backgroundColor: "#1a1a1a",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        <div className="animate-heroZoom absolute inset-0 bg-[#1a1a1a]">
+          <Image
+            src="/hero.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/35" />
 
         <div className="relative z-10 max-w-3xl">
@@ -64,36 +67,44 @@ export function HomeView({ locale }: { locale: Locale }) {
             <h2 className="mt-3 text-4xl text-olive-deep sm:text-5xl">{t.chefName}</h2>
             <p className="mt-1 italic text-ink/70">{t.chefRole}</p>
             <p className="mt-5 text-lg leading-relaxed text-ink/90">{t.chefBody}</p>
+            <p className="mt-6">
+              <Link
+                href={path(locale, "chef")}
+                className="text-olive-dark underline underline-offset-4 transition-colors hover:text-olive"
+              >
+                {t.chefLink} →
+              </Link>
+            </p>
           </div>
-          <div
-            className="aspect-[4/5] w-full rounded-2xl bg-olive/20 shadow-[0_24px_60px_-30px_rgba(45,55,40,0.6)] ring-1 ring-gold/20"
-            style={{
-              backgroundImage: "url('/chef.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            role="img"
-            aria-label={t.chefName}
-          />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-olive/20 shadow-[0_24px_60px_-30px_rgba(45,55,40,0.6)] ring-1 ring-gold/20">
+            <Image
+              src="/chef.jpg"
+              alt={t.chefName}
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 
       {/* ---------------- GALERIE ---------------- */}
       <Gallery locale={locale} />
 
-      {/* ---------------- BANDEAU CTA (parallaxe pâtes) ---------------- */}
-      <section
-        className="relative bg-olive-dark bg-fixed px-5 py-28 text-center sm:py-36"
-        style={{
-          backgroundImage:
-            "linear-gradient(0deg, rgba(40,47,34,.74), rgba(40,47,34,.64)), url('/pasta.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <h2 className="mx-auto max-w-2xl text-3xl text-cream sm:text-4xl">{t.ctaTitle}</h2>
-        <div className="mt-8">
+      {/* ---------------- BANDEAU CTA (pâtes) ---------------- */}
+      {/* L'ancien effet parallaxe (background-attachment: fixed) était
+          incompatible avec next/image et déjà ignoré sur iOS. */}
+      <section className="relative overflow-hidden bg-olive-dark px-5 py-28 text-center sm:py-36">
+        <Image
+          src="/pasta.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(40,47,34,.74),rgba(40,47,34,.64))]" />
+        <h2 className="relative mx-auto max-w-2xl text-3xl text-cream sm:text-4xl">{t.ctaTitle}</h2>
+        <div className="relative mt-8">
           <ButtonLink href={path(locale, "contact")} variant="cream" size="lg">
             {t.ctaButton}
           </ButtonLink>

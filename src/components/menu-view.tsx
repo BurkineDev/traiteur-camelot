@@ -2,6 +2,7 @@ import { PageHero } from "@/components/page-hero";
 import { ButtonLink } from "@/components/ui/button";
 import { getDictionary, menuChrome, tHeading } from "@/lib/dictionaries";
 import { menus, type MenuPageData } from "@/lib/menus";
+import { menuSchema } from "@/lib/schema";
 import { menuSlugs, path, type Locale, type MenuKey } from "@/lib/i18n";
 
 /**
@@ -22,6 +23,12 @@ export function MenuView({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(menuSchema(menuKey, locale)),
+        }}
+      />
       <PageHero title={chrome.title} subtitle={chrome.subtitle} image={heroImage}>
         <ButtonLink href={path(locale, "services")} variant="outline">
           {t.menusUi.backToServices}
@@ -41,12 +48,16 @@ export function MenuView({
                 </h2>
               )}
               <div className={group.name ? "mt-12 space-y-14" : "space-y-14"}>
-                {group.courses.map((course, ci) => (
+                {group.courses.map((course, ci) => {
+                  // Vrai titre plutôt qu'un paragraphe : h3 sous un groupe
+                  // nommé (déjà en h2), h2 sinon (directement sous le h1).
+                  const CourseHeading = group.name ? "h3" : "h2";
+                  return (
                   <div key={ci}>
                     {course.heading && (
-                      <p className="text-center text-sm uppercase tracking-[0.28em] text-olive-dark">
+                      <CourseHeading className="text-center text-sm uppercase tracking-[0.28em] text-olive-dark">
                         {tHeading(locale, course.heading)}
-                      </p>
+                      </CourseHeading>
                     )}
                     <ul className={course.heading ? "mt-7 space-y-7" : "space-y-7"}>
                       {course.items.map((item, ii) => (
@@ -61,7 +72,8 @@ export function MenuView({
                       ))}
                     </ul>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>

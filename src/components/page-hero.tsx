@@ -1,8 +1,11 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
  * Bandeau de titre. L'image de fond se met dans /public (ex. /pasta.jpg).
  * Sans image, un dégradé olive sert de repli propre.
+ * L'image passe par next/image (fill + priority : c'est le LCP des pages
+ * intérieures) au lieu d'un background CSS non optimisé.
  */
 export function PageHero({
   title,
@@ -20,20 +23,25 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative flex min-h-[42vh] items-center justify-center px-5 py-20 text-center",
+        "relative flex min-h-[42vh] items-center justify-center overflow-hidden px-5 py-20 text-center",
         className,
       )}
-      style={
-        image
-          ? {
-              backgroundImage: `linear-gradient(0deg, rgba(45,55,40,.62), rgba(45,55,40,.42)), url('${image}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }
-          : { backgroundColor: "var(--color-olive)" }
-      }
+      style={{ backgroundColor: "var(--color-olive)" }}
     >
-      <div className="max-w-2xl">
+      {image && (
+        <>
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(45,55,40,.62),rgba(45,55,40,.42))]" />
+        </>
+      )}
+      <div className="relative z-10 max-w-2xl">
         <h1 className="animate-rise text-5xl text-cream drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:text-6xl">
           {title}
         </h1>

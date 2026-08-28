@@ -43,12 +43,19 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   }, [pathname]);
 
   // Lien vers la page équivalente dans l'autre langue (sélecteur FR/EN).
+  // FR : /nos-services  → segments[0] = "nos-services"
+  // EN : /en/services   → segments[1] = "services"
   const other: Locale = locale === "fr" ? "en" : "fr";
-  const curSlug = (pathname ?? "").split("/").filter(Boolean)[1];
-  let switchHref = `/${other}`;
+  const segments = (pathname ?? "").split("/").filter(Boolean);
+  const curSlug = locale === "fr" ? segments[0] : segments[1];
+  const otherHome = other === "en" ? "/en" : "/";
+  let switchHref = otherHome;
   if (curSlug) {
     const eq = equivalentSlug(locale, other, curSlug);
-    if (eq !== null) switchHref = eq ? `/${other}/${eq}` : `/${other}`;
+    if (eq !== null) {
+      switchHref =
+        other === "en" ? (eq ? `/en/${eq}` : "/en") : (eq ? `/${eq}` : "/");
+    }
   }
 
   const servicesHref = path(locale, "services");

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { Gallery } from "@/components/gallery";
 import { getDictionary } from "@/lib/dictionaries";
@@ -66,6 +67,14 @@ export function HomeView({ locale }: { locale: Locale }) {
             <h2 className="mt-3 text-4xl text-olive-deep sm:text-5xl">{t.chefName}</h2>
             <p className="mt-1 italic text-ink/70">{t.chefRole}</p>
             <p className="mt-5 text-lg leading-relaxed text-ink/90">{t.chefBody}</p>
+            <p className="mt-6">
+              <Link
+                href={path(locale, "chef")}
+                className="text-olive-dark underline underline-offset-4 transition-colors hover:text-olive"
+              >
+                {t.chefLink} →
+              </Link>
+            </p>
           </div>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-olive/20 shadow-[0_24px_60px_-30px_rgba(45,55,40,0.6)] ring-1 ring-gold/20">
             <Image

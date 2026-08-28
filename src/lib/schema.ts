@@ -4,6 +4,7 @@ import { menuChrome, tHeading } from "@/lib/dictionaries";
 import {
   menuSlugs,
   menuPath,
+  path as localePath,
   serviceKeys,
   type Locale,
   type MenuKey,
@@ -96,6 +97,45 @@ export function websiteSchema(locale: Locale) {
     url: siteUrl,
     name: `${site.name} — ${site.tagline}`,
     inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
+  };
+}
+
+/** Balisage FAQPage à partir des questions/réponses d'une page. */
+export function faqSchema(url: string, items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    mainEntity: items.map((i) => ({
+      "@type": "Question",
+      name: i.q,
+      acceptedAnswer: { "@type": "Answer", text: i.a },
+    })),
+  };
+}
+
+/** Balisage Person du chef, pour la page /le-chef. */
+export function chefSchema(locale: Locale) {
+  const url = `${siteUrl}${localePath(locale, "chef")}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${siteUrl}/#chef`,
+    name: site.founder.name,
+    jobTitle: locale === "fr" ? site.founder.jobTitle : "Executive chef / owner",
+    url,
+    image: `${siteUrl}/chef.jpg`,
+    worksFor: { "@id": `${siteUrl}/#business` },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Institut de tourisme et d'hôtellerie du Québec (ITHQ)",
+    },
+    knowsAbout: [
+      "Cuisine gastronomique",
+      "Chef privé à domicile",
+      "Service traiteur",
+      "Gastronomie québécoise",
+    ],
   };
 }
 

@@ -16,7 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const key of Object.keys(pageSlugs) as (keyof typeof pageSlugs)[]) {
     const fr = pageSlugs[key].fr ? `/${pageSlugs[key].fr}` : "/";
     const en = pageSlugs[key].en ? `/en/${pageSlugs[key].en}` : "/en";
-    const priority = key === "home" ? 1 : key === "services" ? 0.9 : 0.7;
+    const priority =
+      key === "home"
+        ? 1
+        : key === "services"
+          ? 0.9
+          : key === "weddingCatering" || key === "chaletChef"
+            ? 0.8
+            : 0.7;
     push(fr, en, priority);
   }
 

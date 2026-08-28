@@ -50,6 +50,22 @@ export function ServicesView({ locale }: { locale: Locale }) {
                       <ButtonLink href={menuPath(locale, key)} variant="olive">
                         {t.discoverMenu}
                       </ButtonLink>
+                      {key === "mariage" && (
+                        <ButtonLink
+                          href={path(locale, "weddingCatering")}
+                          variant="olive"
+                        >
+                          {t.moreWedding}
+                        </ButtonLink>
+                      )}
+                      {key === "chef-a-domicile" && (
+                        <ButtonLink
+                          href={path(locale, "chaletChef")}
+                          variant="olive"
+                        >
+                          {t.moreChalet}
+                        </ButtonLink>
+                      )}
                     </div>
                   </div>
                 </div>

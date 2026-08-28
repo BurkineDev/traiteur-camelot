@@ -19,6 +19,17 @@ export const pageSlugs = {
   services: { fr: "nos-services", en: "services" },
   contact: { fr: "nous-joindre", en: "contact" },
   testimonials: { fr: "temoignage", en: "testimonials" },
+  // Pages d'atterrissage locales (audit SEO) : une intention de recherche
+  // complète par page — mariage, chalet — plus le parcours du chef.
+  weddingCatering: {
+    fr: "traiteur-mariage-mont-tremblant",
+    en: "wedding-caterer-mont-tremblant",
+  },
+  chaletChef: {
+    fr: "chef-prive-chalet-tremblant",
+    en: "private-chef-chalet-tremblant",
+  },
+  chef: { fr: "le-chef", en: "the-chef" },
 } as const;
 export type PageKey = keyof typeof pageSlugs;
 

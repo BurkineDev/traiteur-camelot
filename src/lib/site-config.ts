@@ -51,10 +51,12 @@ export const site = {
     "Montréal",
   ],
 
-  // TODO: remplacer par les vraies URLs (laisser "" si inconnu).
+  // Pages officielles — alimentent les liens sameAs du balisage (l'entité
+  // que Google relie à la fiche Business Profile) et le pied de page.
   socials: {
-    facebook: "",
-    instagram: "",
+    facebook:
+      "https://www.facebook.com/p/CAMELOT-Service-Culinaire-61569230758627/",
+    instagram: "https://www.instagram.com/traiteurcamelot/",
   },
 } as const;
 

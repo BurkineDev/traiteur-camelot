@@ -22,7 +22,11 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export const dynamicParams = false;
+// dynamicParams doit rester actif dans tout le segment : avec false (qui
+// cascade sur [slug]), une URL inconnue provoque une NoFallbackError et la
+// 404 Next.js par défaut au lieu de not-found.tsx. Les langues/slugs connus
+// restent pré-générés ; l'inconnu passe par notFound().
+export const dynamicParams = true;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

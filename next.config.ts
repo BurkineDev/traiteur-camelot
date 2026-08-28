@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
     // vers les nouvelles URLs canoniques FR à la racine.
     // Ces redirections s'exécutent AVANT le middleware → aucun risque de boucle.
     return [
+      // www → domaine nu : une seule version canonique servie à Google.
+      // (Nécessite que www.traiteurcamelot.com soit rattaché au projet Vercel.)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.traiteurcamelot.com" }],
+        destination: "https://traiteurcamelot.com/:path*",
+        permanent: true,
+      },
       { source: "/fr", destination: "/", permanent: true },
       { source: "/fr/nos-services", destination: "/nos-services", permanent: true },
       { source: "/fr/nous-joindre", destination: "/nous-joindre", permanent: true },

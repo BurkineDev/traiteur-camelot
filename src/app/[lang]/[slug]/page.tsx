@@ -18,7 +18,10 @@ export function generateStaticParams() {
   return allSlugParams();
 }
 
-export const dynamicParams = false;
+// dynamicParams doit rester actif : avec false, un slug inconnu recevrait la
+// 404 Next.js par défaut au lieu de la page not-found du segment [lang].
+// Les slugs connus restent pré-générés ; un slug inconnu passe par notFound().
+export const dynamicParams = true;
 
 function buildLanguages(lang: Locale, slug: string) {
   const langs: Record<string, string> = {};

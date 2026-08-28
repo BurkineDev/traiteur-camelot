@@ -48,12 +48,16 @@ export function MenuView({
                 </h2>
               )}
               <div className={group.name ? "mt-12 space-y-14" : "space-y-14"}>
-                {group.courses.map((course, ci) => (
+                {group.courses.map((course, ci) => {
+                  // Vrai titre plutôt qu'un paragraphe : h3 sous un groupe
+                  // nommé (déjà en h2), h2 sinon (directement sous le h1).
+                  const CourseHeading = group.name ? "h3" : "h2";
+                  return (
                   <div key={ci}>
                     {course.heading && (
-                      <p className="text-center text-sm uppercase tracking-[0.28em] text-olive-dark">
+                      <CourseHeading className="text-center text-sm uppercase tracking-[0.28em] text-olive-dark">
                         {tHeading(locale, course.heading)}
-                      </p>
+                      </CourseHeading>
                     )}
                     <ul className={course.heading ? "mt-7 space-y-7" : "space-y-7"}>
                       {course.items.map((item, ii) => (
@@ -68,7 +72,8 @@ export function MenuView({
                       ))}
                     </ul>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
